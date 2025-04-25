@@ -2,63 +2,64 @@
 
 /* General body styles */
 body {
-    background-color: #f4f4f4; /* Light gray background */
-    color: #333; /* Dark text color */
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Navbar styles */
-nav {
-    background-color: #003366; /* Dark blue */
+    background-color: #003366; /* Dark blue background */
+    color: #fff; /* White text color */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+  }
+  
+  /* Navbar styles */
+  nav {
+    background-color: #002244; /* Darker blue for navbar */
     padding: 1rem;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav a {
-    color: white; /* White text for links */
+  }
+  
+  nav a {
+    color: white;
     text-decoration: none;
     padding: 10px 15px;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-nav a:hover {
+    transition: background-color 0.3s;
+  }
+  
+  nav a:hover {
     background-color: #ff0000; /* Red on hover */
-}
-
-/* Header styles */
-h1 {
-    text-align: center;
-    color: #003366; /* Dark blue */
-}
-
-/* Form styles */
-form {
+  }
+  
+  /* Form styles */
+  form {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-input {
+  }
+  
+  input {
     padding: 10px;
     margin-right: 10px;
-    border: 2px solid #003366; /* Dark blue border */
+    border: 2px solid #ff0000; /* Red border */
     border-radius: 5px;
-}
-
-button {
+  }
+  
+  button {
     padding: 10px;
     background-color: #ff0000; /* Red button */
-    color: white; /* White text */
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background-color: #cc0000; /* Darker red on hover */
-}
+  }
+  
+  /* List styles */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #fff; /* White divider */
+  }
