@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ cartItemsCount }) => {
   return (
     <nav style={{
       display: 'flex',
@@ -9,14 +9,14 @@ const Navbar = () => {
       justifyContent: 'space-between',
       padding: '1rem',
       backgroundColor: '#002244',
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' // Add shadow for modern look
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Add shadow for modern look
     }}>
       <div style={{
         fontSize: '24px',
         fontWeight: 'bold',
         color: '#ff0000',
         fontFamily: 'Montserrat, sans-serif',
-        textTransform: 'uppercase' // Capitalize the text
+        textTransform: 'uppercase', // Capitalize the text
       }}>
         EzTechMovie
       </div>
@@ -24,7 +24,7 @@ const Navbar = () => {
         display: 'flex',
         listStyleType: 'none',
         margin: 0,
-        padding: 0
+        padding: 0,
       }}>
         <li style={{
           margin: '0 15px',
@@ -56,7 +56,7 @@ const Navbar = () => {
           transition: 'background-color 0.3s',
         }}>
           <Link to="/cart" style={{ color: 'white', textDecoration: 'none' }}>
-            <i className="fas fa-shopping-cart"></i> Cart
+            <i className="fas fa-shopping-cart"></i> Cart ({cartItemsCount}) {/* Display item count */}
           </Link>
         </li>
         <li style={{
