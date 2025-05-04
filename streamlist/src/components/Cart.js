@@ -4,31 +4,35 @@ const Cart = ({ cartItems, setCartItems }) => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
+        // Calculate total price
         const total = cartItems.reduce((total, item) => total + item.price * item.amount, 0);
         setTotalPrice(total);
-    }, [cartItems]);
+
+        // Save the updated cart to localStorage whenever cartItems changes
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems]); // This effect runs when cartItems changes
 
     const updateAmount = (item, amount) => {
-        if (amount < 1) {
+        // Ensure amount is a number and at least 1 (due to input min="1")
+        const newAmount = parseInt(amount, 10) || 1;
+
+        if (newAmount < 1) {
             // If the amount is less than 1, remove the item
+            // This case is less likely with min="1" but handled for robustness
             removeItem(item);
         } else {
             const updatedCart = cartItems.map(cartItem =>
-                cartItem.id === item.id ? { ...cartItem, amount: amount } : cartItem
+                cartItem.id === item.id ? { ...cartItem, amount: newAmount } : cartItem
             );
             setCartItems(updatedCart);
-
-            // Save the updated cart to localStorage
-            localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+            // localStorage save is now handled by the useEffect
         }
     };
 
     const removeItem = (item) => {
         const updatedCart = cartItems.filter(cartItem => cartItem.id !== item.id);
         setCartItems(updatedCart);
-        
-        // Save the updated cart to localStorage
-        localStorage.setItem('cartItems', JSON.stringify(updatedCart));
+        // localStorage save is now handled by the useEffect
     };
 
     return (
@@ -43,12 +47,12 @@ const Cart = ({ cartItems, setCartItems }) => {
                             <div key={item.id} style={styles.card}>
                                 <img src={item.img} alt={item.service} style={styles.image} />
                                 <h2 style={styles.serviceName}>{item.service}</h2>
-                                <p style={styles.price}>${item.price} x 
-                                    <input 
-                                        type="number" 
-                                        value={item.amount} 
-                                        min="1" 
-                                        onChange={(e) => updateAmount(item, parseInt(e.target.value) || 1)} 
+                                <p style={styles.price}>${item.price} x
+                                    <input
+                                        type="number"
+                                        value={item.amount}
+                                        min="1"
+                                        onChange={(e) => updateAmount(item, e.target.value)}
                                         style={styles.quantityInput}
                                     />
                                 </p>
@@ -129,3 +133,4 @@ const styles = {
 };
 
 export default Cart;
+
