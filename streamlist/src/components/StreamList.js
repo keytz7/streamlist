@@ -25,9 +25,9 @@ const StreamList = ({ setCartItems, cartItems }) => {
         // Add new item to cart with initial amount set to 1
         const updatedCart = [...cartItems, { ...item, amount: 1 }];
         
-        // Save the updated cart to localStorage
-        localStorage.setItem('cartItems', JSON.stringify(updatedCart));
-        setCartItems(updatedCart); // Update parent state
+        // Update parent state
+        setCartItems(updatedCart); 
+        // localStorage save should be handled by the parent component managing cartItems state
     };
 
     return (
