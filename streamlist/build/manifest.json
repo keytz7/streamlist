@@ -1,0 +1,34 @@
+{
+  "short_name": "EzTechMovie",
+  "name": "EzTechMovie Application",
+  "icons": [
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "mainpage.png",
+      "type": "image/png"
+    },
+    {
+      "src": "moviespage.png",
+      "type": "image/png"
+    },
+    {
+      "src": "cartpage.png",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#003366",
+  "theme_color": "#003366"
+}
